@@ -20,8 +20,6 @@ Highlight all of the words over 8 characters long in the paragraph text (with a 
 const check = (val, ch) => {
   val = val.replace(ch, '');
   if (val.length > 8) {
-    if (val.indexOf(ch) > -1) {
-    }
     return '<span style="background-color: yellow">' + val + '</span>' + ch;
   }
   return val + ch;
