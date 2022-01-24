@@ -5,53 +5,31 @@ Exercise 01
 -----------
 Highlight all of the words over 8 characters long in the paragraph text (with a yellow background for example)
 */
+const check = (val, ch) => {
+  val = val.replace(ch, '');
+  if (val.length > 8) {
+    if (val.indexOf(ch) > -1) {
+    }
+    return '<span style="background-color: yellow">' + val + '</span>' + ch;
+  }
+  return val + ch;
+};
+
 let p = document.querySelector('p');
 p.innerHTML = p.innerHTML
   .split(' ')
   .map((val) => {
-    console.log(val);
     if (val.indexOf('.') > -1) {
-      val = val.replace('.', '');
-      if (val.length > 8) {
-        if (val.indexOf('.') > -1) {
-        }
-        return '<span style="background-color: yellow">' + val + '</span>.';
-      }
-      return val + '.';
+      return check(val, '.');
     } else if (val.indexOf(',') > -1) {
-      val = val.replace(',', '');
-      if (val.length > 8) {
-        if (val.indexOf(',') > -1) {
-        }
-        return '<span style="background-color: yellow">' + val + '</span>,';
-      }
-      return val + ',';
+      return check(val, ',');
     } else if (val.indexOf('\n') > -1) {
-      val = val.replace('\n', '');
-      if (val.length > 8) {
-        if (val.indexOf('\n') > -1) {
-        }
-        return '<span style="background-color: yellow">' + val + '</span>\n';
-      }
-      return val + '\n';
+      return check(val, '\n');
     } else if (val.indexOf('!') > -1) {
-      val = val.replace('!', '');
-      if (val.length > 8) {
-        if (val.indexOf('!') > -1) {
-        }
-        return '<span style="background-color: yellow">' + val + '</span>!';
-      }
-      return val + '!';
+      return check(val, '!');
     } else if (val.indexOf('?') > -1) {
-      val = val.replace('?', '');
-      if (val.length > 8) {
-        if (val.indexOf('?') > -1) {
-        }
-        return '<span style="background-color: yellow">' + val + '</span>?';
-      }
-      return val + '?';
-    }
-    if (val.length > 8) {
+      return check(val, '?');
+    } else if (val.length > 8) {
       return '<span style="background-color: yellow">' + val + '</span>';
     }
     return val;
