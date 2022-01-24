@@ -48,7 +48,7 @@ p.innerHTML = p.innerHTML
   })
   .join(' ');
 
-// # additional2 - It's not exact like answer 1
+// # additional2 of answer 1
 // p.innerHTML = p.innerText
 //   .split(' ')
 //   .map(word => {
