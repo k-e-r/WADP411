@@ -20,7 +20,6 @@ Highlight all of the words over 8 characters long in the paragraph text (with a 
 const check = (val, ch) => {
   if (ch !== '\n') {
     val = val.replace(ch, '');
-    val = val.replace('\n', '');
   } else val = val.replace(ch, '');
   if (val.length > 8) {
     if (val.indexOf(ch) > -1) {
@@ -31,16 +30,14 @@ const check = (val, ch) => {
 };
 
 let p = document.querySelector('p');
+p.innerHTML = p.innerHTML.replaceAll('\n', ' ');
 p.innerHTML = p.innerHTML
   .split(' ')
   .map((val) => {
     if (val.indexOf('.') > -1) {
-      console.log(val);
       return check(val, '.');
     } else if (val.indexOf(',') > -1) {
       return check(val, ',');
-    } else if (val.indexOf('\n') > -1) {
-      return check(val, '\n');
     } else if (val.indexOf('!') > -1) {
       return check(val, '!');
     } else if (val.indexOf('?') > -1) {
