@@ -9,6 +9,48 @@ let p = document.querySelector('p');
 p.innerHTML = p.innerHTML
   .split(' ')
   .map((val) => {
+    console.log(val);
+    if (val.indexOf('.') > -1) {
+      val = val.replace('.', '');
+      if (val.length > 8) {
+        if (val.indexOf('.') > -1) {
+        }
+        return '<span style="background-color: yellow">' + val + '</span>.';
+      }
+      return val + '.';
+    } else if (val.indexOf(',') > -1) {
+      val = val.replace(',', '');
+      if (val.length > 8) {
+        if (val.indexOf(',') > -1) {
+        }
+        return '<span style="background-color: yellow">' + val + '</span>,';
+      }
+      return val + ',';
+    } else if (val.indexOf('\n') > -1) {
+      val = val.replace('\n', '');
+      if (val.length > 8) {
+        if (val.indexOf('\n') > -1) {
+        }
+        return '<span style="background-color: yellow">' + val + '</span>\n';
+      }
+      return val + '\n';
+    } else if (val.indexOf('!') > -1) {
+      val = val.replace('!', '');
+      if (val.length > 8) {
+        if (val.indexOf('!') > -1) {
+        }
+        return '<span style="background-color: yellow">' + val + '</span>!';
+      }
+      return val + '!';
+    } else if (val.indexOf('?') > -1) {
+      val = val.replace('?', '');
+      if (val.length > 8) {
+        if (val.indexOf('?') > -1) {
+        }
+        return '<span style="background-color: yellow">' + val + '</span>?';
+      }
+      return val + '?';
+    }
     if (val.length > 8) {
       return '<span style="background-color: yellow">' + val + '</span>';
     }
