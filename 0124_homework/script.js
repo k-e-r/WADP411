@@ -26,8 +26,8 @@ const check = (val, ch) => {
 };
 
 let p = document.querySelector('p');
-p.innerHTML = p.innerHTML.replaceAll('\n', ' ');
 p.innerHTML = p.innerHTML
+  .replaceAll('\n', ' ')
   .split(' ')
   .map((val) => {
     if (val.indexOf('.') > -1) {
