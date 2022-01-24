@@ -5,46 +5,56 @@ Exercise 01
 -----------
 Highlight all of the words over 8 characters long in the paragraph text (with a yellow background for example)
 */
+// let p = document.querySelector('p');
+// p.innerHTML = p.innerHTML
+//   .split(' ')
+//   .map((val) => {
+//     if (val.length > 8) {
+//       return '<span style="background-color: yellow">' + val + '</span>';
+//     }
+//     return val;
+//   })
+//   .join(' ');
+
+// # additional1
+const check = (val, ch) => {
+  val = val.replace(ch, '');
+  if (val.length > 8) {
+    if (val.indexOf(ch) > -1) {
+    }
+    return '<span style="background-color: yellow">' + val + '</span>' + ch;
+  }
+  return val + ch;
+};
+
 let p = document.querySelector('p');
 p.innerHTML = p.innerHTML
   .split(' ')
   .map((val) => {
-    if (val.length > 8) {
+    if (val.indexOf('.') > -1) {
+      return check(val, '.');
+    } else if (val.indexOf(',') > -1) {
+      return check(val, ',');
+    } else if (val.indexOf('\n') > -1) {
+      return check(val, '\n');
+    } else if (val.indexOf('!') > -1) {
+      return check(val, '!');
+    } else if (val.indexOf('?') > -1) {
+      return check(val, '?');
+    } else if (val.length > 8) {
       return '<span style="background-color: yellow">' + val + '</span>';
     }
     return val;
   })
   .join(' ');
 
-// # additional
-// const check = (val, ch) => {
-//   val = val.replace(ch, '');
-//   if (val.length > 8) {
-//     if (val.indexOf(ch) > -1) {
-//     }
-//     return '<span style="background-color: yellow">' + val + '</span>' + ch;
-//   }
-//   return val + ch;
-// };
-
-// let p = document.querySelector('p');
-// p.innerHTML = p.innerHTML
+// # additional2 - It's not exact like answer 1
+// p.innerHTML = p.innerText
 //   .split(' ')
-//   .map((val) => {
-//     if (val.indexOf('.') > -1) {
-//       return check(val, '.');
-//     } else if (val.indexOf(',') > -1) {
-//       return check(val, ',');
-//     } else if (val.indexOf('\n') > -1) {
-//       return check(val, '\n');
-//     } else if (val.indexOf('!') > -1) {
-//       return check(val, '!');
-//     } else if (val.indexOf('?') > -1) {
-//       return check(val, '?');
-//     } else if (val.length > 8) {
-//       return '<span style="background-color: yellow">' + val + '</span>';
-//     }
-//     return val;
+//   .map(word => {
+//     return word.length > 8
+//       ? `<span style="background-color: yellow">${word}</span>`
+//       : word;
 //   })
 //   .join(' ');
 
@@ -56,7 +66,11 @@ p.innerHTML = p.innerHTML
 */
 const a = document.createElement('a');
 a.href = 'http://officeipsum.com/';
-a.innerText = 'link';
+/*
+ * Either is fine
+ */
+// a.innerText = 'link';
+a.textContent = 'link';
 p.after(a);
 
 /*
