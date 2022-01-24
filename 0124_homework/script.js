@@ -18,9 +18,7 @@ Highlight all of the words over 8 characters long in the paragraph text (with a 
 
 // # additional1
 const check = (val, ch) => {
-  if (ch !== '\n') {
-    val = val.replace(ch, '');
-  } else val = val.replace(ch, '');
+  val = val.replace(ch, '');
   if (val.length > 8) {
     if (val.indexOf(ch) > -1) {
     }
