@@ -26,7 +26,7 @@ p.innerHTML = p.innerHTML
 const a = document.createElement('a');
 a.href = 'http://officeipsum.com/';
 a.innerText = 'link';
-p.parentElement.appendChild(a);
+p.after(a);
 
 /*
   Exercise 03
