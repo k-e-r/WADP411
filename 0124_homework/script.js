@@ -5,36 +5,48 @@ Exercise 01
 -----------
 Highlight all of the words over 8 characters long in the paragraph text (with a yellow background for example)
 */
-const check = (val, ch) => {
-  val = val.replace(ch, '');
-  if (val.length > 8) {
-    if (val.indexOf(ch) > -1) {
-    }
-    return '<span style="background-color: yellow">' + val + '</span>' + ch;
-  }
-  return val + ch;
-};
-
 let p = document.querySelector('p');
 p.innerHTML = p.innerHTML
   .split(' ')
   .map((val) => {
-    if (val.indexOf('.') > -1) {
-      return check(val, '.');
-    } else if (val.indexOf(',') > -1) {
-      return check(val, ',');
-    } else if (val.indexOf('\n') > -1) {
-      return check(val, '\n');
-    } else if (val.indexOf('!') > -1) {
-      return check(val, '!');
-    } else if (val.indexOf('?') > -1) {
-      return check(val, '?');
-    } else if (val.length > 8) {
+    if (val.length > 8) {
       return '<span style="background-color: yellow">' + val + '</span>';
     }
     return val;
   })
   .join(' ');
+
+// # additional
+// const check = (val, ch) => {
+//   val = val.replace(ch, '');
+//   if (val.length > 8) {
+//     if (val.indexOf(ch) > -1) {
+//     }
+//     return '<span style="background-color: yellow">' + val + '</span>' + ch;
+//   }
+//   return val + ch;
+// };
+
+// let p = document.querySelector('p');
+// p.innerHTML = p.innerHTML
+//   .split(' ')
+//   .map((val) => {
+//     if (val.indexOf('.') > -1) {
+//       return check(val, '.');
+//     } else if (val.indexOf(',') > -1) {
+//       return check(val, ',');
+//     } else if (val.indexOf('\n') > -1) {
+//       return check(val, '\n');
+//     } else if (val.indexOf('!') > -1) {
+//       return check(val, '!');
+//     } else if (val.indexOf('?') > -1) {
+//       return check(val, '?');
+//     } else if (val.length > 8) {
+//       return '<span style="background-color: yellow">' + val + '</span>';
+//     }
+//     return val;
+//   })
+//   .join(' ');
 
 /*
   Exercise 02
