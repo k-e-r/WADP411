@@ -88,6 +88,12 @@ const div = document.createElement('div');
 div.innerText = p.innerText.split(' ').length + ' words';
 document.querySelector('h1').after(div);
 
+// # additional2
+// const div = document.createElement('div');
+// div.innerText =
+//   p.innerText.replaceAll('\n', ' ').split(' ').length - 1 + ' words';
+// document.querySelector('h1').after(div);
+
 // # additional (Partitioning even on a new line)
 // const div = document.createElement('div');
 // // console.log(p.innerText.split(/ |\n/));
