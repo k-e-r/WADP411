@@ -6,10 +6,13 @@ const p = document.createElement('p');
 let hMove = 0,
   vMove = 0;
 let score = 0;
-const offsetH = parseInt(window.getComputedStyle(coin, null).height);
-const offsetW = parseInt(window.getComputedStyle(coin, null).width);
+let offsetCH, offsetCW, offsetMH, offsetMW;
 
 window.onload = function () {
+  offsetCH = parseInt(window.getComputedStyle(coin, null).height);
+  offsetCW = parseInt(window.getComputedStyle(coin, null).width);
+  offsetMH = parseInt(window.getComputedStyle(avatar, null).height);
+  offsetMW = parseInt(window.getComputedStyle(avatar, null).width);
   init();
 };
 
@@ -26,8 +29,8 @@ function isTouching(a, b) {
 
 const init = () => {
   const aRect = avatar.getBoundingClientRect();
-  const height = Math.floor(Math.random() * (window.innerHeight - offsetH));
-  const width = Math.floor(Math.random() * (window.innerWidth - offsetW));
+  const height = Math.floor(Math.random() * (window.innerHeight - offsetCH));
+  const width = Math.floor(Math.random() * (window.innerWidth - offsetCW));
 
   coin.style.left = `${width}px`;
   coin.style.top = `${height}px`;
@@ -56,14 +59,14 @@ document.addEventListener('keydown', (event) => {
   }
   // right
   if (event.keyCode === 39) {
-    if (aRect.left < window.innerWidth - offsetW) {
+    if (aRect.left < window.innerWidth - (offsetMW + 50)) {
       hMove += 50;
       avatar.style.left = `${hMove}px`;
     }
   }
   // down
   if (event.keyCode === 40) {
-    if (aRect.top < window.innerHeight - offsetH) {
+    if (aRect.top < window.innerHeight - (offsetMH + 50)) {
       vMove += 50;
       avatar.style.top = `${vMove}px`;
     }
@@ -73,5 +76,11 @@ document.addEventListener('keydown', (event) => {
     sound.play();
     score++;
     init();
+    Sleep(300);
   }
 });
+
+function Sleep(milli_second) {
+  var start = new Date();
+  while (new Date() - start < milli_second);
+}
