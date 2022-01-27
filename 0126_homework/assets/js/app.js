@@ -13,6 +13,7 @@ window.onload = function () {
   offsetCW = parseInt(window.getComputedStyle(coin, null).width);
   offsetMH = parseInt(window.getComputedStyle(avatar, null).height);
   offsetMW = parseInt(window.getComputedStyle(avatar, null).width);
+  document.body.appendChild(p);
   init();
 };
 
@@ -37,7 +38,6 @@ const init = () => {
 
   (curLeft = aRect.left), (curTop = aRect.top);
   p.textContent = `Score: ${score}`;
-  document.body.appendChild(p);
 };
 
 document.addEventListener('keydown', (event) => {
