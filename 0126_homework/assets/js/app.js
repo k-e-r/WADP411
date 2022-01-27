@@ -3,8 +3,8 @@ const coin = document.querySelector('#coin');
 const sound = new Audio('assets/audio/smw_coin.wav');
 const p = document.createElement('p');
 
-let hMove = 0,
-  vMove = 0;
+let curLeft = 0,
+  curTop = 0;
 let score = 0;
 let offsetCH, offsetCW, offsetMH, offsetMW;
 
@@ -35,40 +35,34 @@ const init = () => {
   coin.style.left = `${width}px`;
   coin.style.top = `${height}px`;
 
-  (hMove = aRect.left), (vMove = aRect.top);
-  p.innerHTML = `Score: ${score}`;
+  (curLeft = aRect.left), (curTop = aRect.top);
+  p.textContent = `Score: ${score}`;
   document.body.appendChild(p);
 };
 
 document.addEventListener('keydown', (event) => {
   const aRect = avatar.getBoundingClientRect();
+  const moveVal = 50;
 
-  // left
-  if (event.keyCode === 37) {
+  if (event.key === 'ArrowLeft') {
     if (aRect.left > 0) {
-      hMove -= 50;
-      avatar.style.left = `${hMove}px`;
+      curLeft -= moveVal;
+      avatar.style.left = `${curLeft}px`;
     }
-  }
-  // up
-  if (event.keyCode === 38) {
+  } else if (event.key === 'ArrowUp') {
     if (aRect.top > 0) {
-      vMove -= 50;
-      avatar.style.top = `${vMove}px`;
+      curTop -= moveVal;
+      avatar.style.top = `${curTop}px`;
     }
-  }
-  // right
-  if (event.keyCode === 39) {
-    if (aRect.left < window.innerWidth - (offsetMW + 50)) {
-      hMove += 50;
-      avatar.style.left = `${hMove}px`;
+  } else if (event.key === 'ArrowRight') {
+    if (aRect.left < window.innerWidth - (offsetMW + moveVal)) {
+      curLeft += moveVal;
+      avatar.style.left = `${curLeft}px`;
     }
-  }
-  // down
-  if (event.keyCode === 40) {
-    if (aRect.top < window.innerHeight - (offsetMH + 50)) {
-      vMove += 50;
-      avatar.style.top = `${vMove}px`;
+  } else if (event.key === 'ArrowDown') {
+    if (aRect.top < window.innerHeight - (offsetMH + moveVal)) {
+      curTop += moveVal;
+      avatar.style.top = `${curTop}px`;
     }
   }
 
@@ -76,7 +70,9 @@ document.addEventListener('keydown', (event) => {
     sound.play();
     score++;
     init();
-    Sleep(300);
+    Sleep(350);
+    sound.pause();
+    sound.currentTime = 0;
   }
 });
 
