@@ -67,16 +67,15 @@
       const prevBtn = document.querySelector('#prev-button');
       const nextBtn = document.querySelector('#next-button');
       const img = document.querySelector('img');
-      let curImg = 0;
 
       prevBtn.addEventListener('click', (e) => {
-        curImg ===  0 ? curImg = images.length - 1 : curImg--;
-        img.src = images[curImg];
+        currentIndex ===  0 ? currentIndex = images.length - 1 : currentIndex--;
+        img.src = images[currentIndex];
       });
 
       nextBtn.addEventListener('click', (e) => {
-        curImg ===  (images.length - 1) ? curImg = 0 : curImg++;
-        img.src = images[curImg];
+        currentIndex ===  (images.length - 1) ? currentIndex = 0 : currentIndex++;
+        img.src = images[currentIndex];
       });
       //solution end here
     </script>
