@@ -68,12 +68,12 @@
       const nextBtn = document.querySelector('#next-button');
       const img = document.querySelector('img');
 
-      prevBtn.addEventListener('click', (e) => {
+      prevBtn.addEventListener('click', () => {
         currentIndex ===  0 ? currentIndex = images.length - 1 : currentIndex--;
         img.src = images[currentIndex];
       });
 
-      nextBtn.addEventListener('click', (e) => {
+      nextBtn.addEventListener('click', () => {
         currentIndex ===  (images.length - 1) ? currentIndex = 0 : currentIndex++;
         img.src = images[currentIndex];
       });
