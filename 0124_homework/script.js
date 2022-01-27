@@ -85,9 +85,9 @@ p.innerHTML = p.innerHTML.split('.').join('.</p><p>') + '</p>';
   Count the number of words in the paragraph tag and display the count afer the heading.
   You can assume that all words are separated by one singular whitespace.
 */
-// const div = document.createElement('div');
-// div.innerText = p.innerText.split(' ').length + ' words';
-// document.querySelector('h1').after(div);
+const div = document.createElement('div');
+div.innerText = p.textContent.trim().split(' ').length + ' words';
+document.querySelector('h1').after(div);
 
 // # additional2
 // const div = document.createElement('div');
@@ -101,7 +101,7 @@ p.innerHTML = p.innerHTML.split('.').join('.</p><p>') + '</p>';
 // // for last </br>
 // div.innerText = p.innerText.split(/ |\n/).length - 1 + ' words';
 // document.querySelector('h1').after(div);
-console.log(p.textContent.trim().split(' ').length);
+// console.log(p.textContent.trim().split(' ').length);
 
 /*
   Exercise 05
