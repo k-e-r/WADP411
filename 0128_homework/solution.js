@@ -6,19 +6,17 @@ async function getData() {
   const response = await fetch(API_URL);
   const { results } = await response.json();
 
-  console.log(results);
-
   // clear result
   result.innerHTML = '';
+  const container = document.createElement('div');
+  container.className = 'user-list';
   results.forEach((el) => {
-    const container = document.createElement('div');
     const li = document.createElement('li');
     const img = document.createElement('img');
     const user = document.createElement('div');
     const name = document.createElement('h4');
     const location = document.createElement('p');
 
-    container.className = 'user-list';
     img.setAttribute('src', el.picture.medium);
     li.appendChild(img);
 
@@ -31,8 +29,8 @@ async function getData() {
     li.appendChild(user);
 
     container.appendChild(li);
-    result.appendChild(container);
   });
+  result.appendChild(container);
 }
 
 filter.addEventListener('keyup', (e) => {
@@ -45,8 +43,8 @@ filter.addEventListener('keyup', (e) => {
         .toLowerCase()
         .indexOf(searchChar) !== -1
     ) {
-      user.style.display = 'flex';
-    } else user.style.display = 'none';
+      user.classList.remove('hide');
+    } else user.classList.add('hide');
   });
 });
 
