@@ -33,21 +33,21 @@ async function getData() {
     container.appendChild(li);
     result.appendChild(container);
   });
-
-  filter.addEventListener('keyup', (e) => {
-    let searchChar = e.target.value.toLowerCase();
-    let users = result.querySelectorAll('li');
-
-    Array.from(users).forEach((user) => {
-      if (
-        user.lastChild.childNodes[0].textContent
-          .toLowerCase()
-          .indexOf(searchChar) !== -1
-      ) {
-        user.style.display = 'flex';
-      } else user.style.display = 'none';
-    });
-  });
 }
+
+filter.addEventListener('keyup', (e) => {
+  let searchChar = e.target.value.toLowerCase();
+  let users = result.querySelectorAll('li');
+
+  Array.from(users).forEach((user) => {
+    if (
+      user.lastChild.childNodes[0].textContent
+        .toLowerCase()
+        .indexOf(searchChar) !== -1
+    ) {
+      user.style.display = 'flex';
+    } else user.style.display = 'none';
+  });
+});
 
 getData();
