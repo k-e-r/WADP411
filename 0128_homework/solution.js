@@ -36,10 +36,8 @@ async function getData() {
 
   filter.addEventListener('keyup', (e) => {
     let searchChar = e.target.value.toLowerCase();
-    console.log(searchChar);
     let users = result.querySelectorAll('li');
-    console.log(users);
-    console.log(searchChar);
+
     Array.from(users).forEach((user) => {
       if (
         user.lastChild.childNodes[0].textContent
@@ -47,9 +45,7 @@ async function getData() {
           .indexOf(searchChar) !== -1
       ) {
         user.style.display = 'flex';
-      } else {
-        user.style.display = 'none';
-      }
+      } else user.style.display = 'none';
     });
   });
 }
