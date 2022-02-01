@@ -90,10 +90,16 @@ async function requestDelete(id) {
       }
     );
     console.log(result.status === 200 ? `id:${id} delete complete` : 'failure');
+    updateHTML(id);
   } catch (error) {
     console.log(error);
   }
 }
+
+const updateHTML = (id) => {
+  const content = document.getElementById(`${id}`);
+  content.classList.add('hide');
+};
 
 fetchButton.addEventListener('click', fetchPosts);
 form.addEventListener('submit', (e) => {
