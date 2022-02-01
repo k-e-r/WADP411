@@ -95,19 +95,6 @@ async function requestDelete(id) {
   }
 }
 
-// async function requestPut(id) {
-//   try {
-//     const result = await sendHTTPRequest(
-//       'PUT',
-//       `https://jsonplaceholder.typicode.com/posts/${id}`
-//     );
-//     console.log(result);
-//     console.log('delete complete');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 fetchButton.addEventListener('click', fetchPosts);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
