@@ -83,16 +83,30 @@ async function createPost(title, content) {
 
 async function requestDelete(id) {
   try {
-    const result = await sendHTTPRequest(
-      'DELETE',
-      `https://jsonplaceholder.typicode.com/posts/${id}`
+    const result = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      {
+        method: 'DELETE',
+      }
     );
-    console.log(result);
-    console.log('delete complete');
+    console.log(result.status === 200 ? `id:${id} delete complete` : 'failure');
   } catch (error) {
     console.log(error);
   }
 }
+
+// async function requestPut(id) {
+//   try {
+//     const result = await sendHTTPRequest(
+//       'PUT',
+//       `https://jsonplaceholder.typicode.com/posts/${id}`
+//     );
+//     console.log(result);
+//     console.log('delete complete');
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 fetchButton.addEventListener('click', fetchPosts);
 form.addEventListener('submit', (e) => {
