@@ -98,7 +98,7 @@ async function requestDelete(id) {
 
 const updateHTML = (id) => {
   const content = document.getElementById(`${id}`);
-  content.classList.add('hide');
+  content.parentNode.removeChild(content);
 };
 
 fetchButton.addEventListener('click', fetchPosts);
