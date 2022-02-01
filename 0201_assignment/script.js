@@ -87,7 +87,8 @@ async function requestDelete(id) {
       'DELETE',
       `https://jsonplaceholder.typicode.com/posts/${id}`
     );
-    console.log('delete');
+    console.log(result);
+    console.log('delete complete');
   } catch (error) {
     console.log(error);
   }
