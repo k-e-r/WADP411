@@ -1,0 +1,26 @@
+:root {
+  overflow: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+}
+
+.box {
+  scroll-snap-align: start;
+  height: 100vh;
+  font-size: 2rem;
+  text-align: center;
+  color: #000;
+}
+
+.box1 {
+  background-color: #eed7da;
+}
+
+.box2 {
+  background-color: #b4bcdc;
+}
+
+.box3 {
+  background-color: #abbe9e;
+}
+/*# sourceMappingURL=style.css.map */

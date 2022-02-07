@@ -1,0 +1,30 @@
+:root {
+  // height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+.box {
+  scroll-snap-align: start;
+  // height: 100%;
+  height: 100vh;
+
+  ////////////////////////////////
+  // for color, not necessary
+  &1 {
+    background-color: #eed7da;
+  }
+  &2 {
+    background-color: #b4bcdc;
+  }
+  &3 {
+    background-color: #abbe9e;
+  }
+  ////////////////////////////////
+
+  ////////////////////////////////
+  // for number, not necessary
+  font-size: 2rem;
+  text-align: center;
+  color: #000;
+  ////////////////////////////////
+}
