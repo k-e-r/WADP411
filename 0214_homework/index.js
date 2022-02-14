@@ -1,17 +1,19 @@
 function updateOutput() {
   $('iframe').contents().find('html').html(`
-        <html>
-        <head>
-            <style type="text/css">
-                ${$('#cssPanel').val()}
-            </style>
-        </head>
+  <html>
+  <head>
+  <style type="text/css">
+  ${$('#cssPanel').val()}
+  </style>
+  </head>
 
-        <body>
-            ${$('#htmlPanel').val()}
-        </body>
-        </html>
-    `);
+  <body>
+  ${$('#htmlPanel').val()}
+  </body>
+  </html>
+  `);
+  // console.log($('iframe').contents().find('paragraph'));
+  // console.log(document.getElementById('paragraph').innerHTML);
 }
 
 $('#html').click(function () {
@@ -22,7 +24,7 @@ $('#html').click(function () {
     $('#htmlPanel').addClass('hidden');
   }
 });
-$('#htmlPanel').focusout(function () {
+$('#htmlPanel').keyup(function () {
   updateOutput();
 });
 
@@ -34,7 +36,7 @@ $('#css').click(function () {
     $('#cssPanel').addClass('hidden');
   }
 });
-$('#cssPanel').focusout(function () {
+$('#cssPanel').keyup(function () {
   updateOutput();
 });
 
@@ -46,7 +48,7 @@ $('#javascript').click(function () {
     $('#javascriptPanel').addClass('hidden');
   }
 });
-$('#javascriptPanel').focusout(function () {
+$('#javascriptPanel').keyup(function () {
   updateOutput();
 });
 
@@ -59,4 +61,6 @@ $('#output').click(function () {
   }
 });
 
-updateOutput();
+$(document).ready(function () {
+  updateOutput();
+});
