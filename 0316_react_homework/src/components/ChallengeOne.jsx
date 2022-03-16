@@ -24,7 +24,7 @@ class ChallengeOne extends Component {
           <img
             className="ch1"
             src={this.state.image}
-            alt="left image"
+            alt={this.state.image.split("/")[3].split('.')[0]}
           />
         </div>
         <button className="btn" onClick={() => this.clickHandler(lookLeft)}>⭠</button>
