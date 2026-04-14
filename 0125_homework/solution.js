@@ -1,6 +1,6 @@
 const addBtn = document.querySelector('#add-btn');
 const input = document.querySelector('#add-input');
-const itemsUL = document.querySelector('#list');
+const list = document.querySelector('#list');
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -24,15 +24,15 @@ addBtn.addEventListener('click', (e) => {
   brank.textContent = ' ';
   li.appendChild(iconP).appendChild(brank);
   li.appendChild(iconP).appendChild(times);
-  itemsUL.appendChild(li);
+  list.appendChild(li);
   input.value = '';
 
   /**
    * answer 2 (before adding delete function)
    */
-  // const data = itemsUL.firstElementChild.cloneNode(true);
+  // const data = list.firstElementChild.cloneNode(true);
   // data.firstElementChild.textContent = input.value;
-  // itemsUL.appendChild(data);
+  // list.appendChild(data);
   // input.value = '';
 
   /**
@@ -46,6 +46,27 @@ addBtn.addEventListener('click', (e) => {
   //     <i class="fa fa-pencil"></i>
   //     <i class="fa fa-times"></i>
   //   </p>`;
-  // itemsUL.appendChild(newLI);
+  // list.appendChild(newLI);
   // input.value = '';
+});
+
+list.addEventListener('click', function (e) {
+  if (e.target.classList[1] === 'fa-pencil') {
+    let parentP = e.target.parentNode;
+    parentP.style.display = 'none';
+
+    let note = parentP.previousElementSibling;
+    let edInput = parentP.nextElementSibling;
+
+    edInput.style.display = 'block';
+    edInput.value = note.textContent;
+
+    input.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13) {
+        console.log('enter');
+      }
+    });
+  } else if (e.target.classList[1] === 'fa-times') {
+    e.target.parentNode.parentNode.remove();
+  }
 });
